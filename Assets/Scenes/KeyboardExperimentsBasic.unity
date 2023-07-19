@@ -1427,7 +1427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1547417753747986483, guid: f4878acffed815b45806868863f284be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3203
+      value: 0.2708
       objectReference: {fileID: 0}
     - target: {fileID: 1547417753747986483, guid: f4878acffed815b45806868863f284be, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1435,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1547417753747986483, guid: f4878acffed815b45806868863f284be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0145
+      value: 0.0087
       objectReference: {fileID: 0}
     - target: {fileID: 1547417753747986483, guid: f4878acffed815b45806868863f284be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2202,6 +2202,10 @@ PrefabInstance:
     - target: {fileID: 8921386601876661438, guid: 2cf5e1412e15eed439fef940c858e016, type: 3}
       propertyPath: m_Name
       value: Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921386602620371370, guid: 2cf5e1412e15eed439fef940c858e016, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf5e1412e15eed439fef940c858e016, type: 3}
