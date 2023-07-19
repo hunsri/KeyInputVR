@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3313c14c5ff9fc242bceb9e69784b5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedMapping: 0
+  _selectedMapping: 1
   KeyInfos:
   - {fileID: 4586317738217808346}
   - {fileID: 195581477012299826}
@@ -2290,6 +2290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8608067644059374799}
     m_Modifications:
+    - target: {fileID: 2719533205872170380, guid: 0ca5b11bdc94f524e85b8b097352bb86, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2986839366419868476, guid: 0ca5b11bdc94f524e85b8b097352bb86, type: 3}
       propertyPath: m_Name
       value: Capslock

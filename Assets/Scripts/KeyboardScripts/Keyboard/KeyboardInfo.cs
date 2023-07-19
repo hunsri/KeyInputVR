@@ -15,8 +15,14 @@ namespace KeyInputVR.Keyboard
         private IKeyMap _keyMap;
 
         private bool _isShifted;
+        private bool _isCapsLocked;
+
         public bool IsShifted {get {return _isShifted;} set {SetShiftState(value);}}
-        //public bool IsCapsLocked {get {return IsCapsLocked;} set{IsCapsLocked = value; UpdateCapsLockState();}}
+        public bool IsCapsLocked {get {return _isCapsLocked;} set{SetCapsLockState(value);}}
+
+        // Logical XOR
+        // Returns true if Shifted OR CapsLocked, but not if both or neither are true
+        public bool IsSetToUppercase {get {return IsShifted ^ IsCapsLocked;}}
 
         [SerializeField]
         public List<KeyInfo> KeyInfos = new List<KeyInfo>();
@@ -54,10 +60,10 @@ namespace KeyInputVR.Keyboard
             }
         }
 
-        // private void OnValidate()
-        // {
-        //     ApplyMapping(_selectedMapping);
-        // }
+        private void OnValidate()
+        {
+            ApplyMapping(_selectedMapping);
+        }
 
         private void ApplyMapping(KeyMappingType mapping)
         {
@@ -79,17 +85,46 @@ namespace KeyInputVR.Keyboard
         private void SetShiftState(bool shifted)
         {
             _isShifted = shifted;
+            
+            ApplyStateChangesToLabels();
+        }
 
-            foreach(KeyInfo info in RegularKeys)
+        public void SetCapsLockState(bool capsLocked)
+        {
+            _isCapsLocked = capsLocked;
+
+            // Note that this implementation follows a ShiftLock rather than a CapsLock
+            ApplyStateChangesToLabels();
+        }
+
+        public void DisplayShiftKeysAsActive(bool active)
+        {
+            foreach(KeyInfo infos in ShiftKeys)
             {
-                info.SetShiftState(shifted);
+                if(active)
+                    infos.LockAppearanceToActive();
+                else
+                    infos.ReleaseFromActiveAppearance();    
             }
         }
 
-        private void UpdateCapsLockState()
+        public void DisplayCapsLockKeysAsActive(bool active)
         {
-
+            foreach(KeyInfo infos in CapsKeys)
+            {
+                if(active)
+                    infos.LockAppearanceToActive();
+                else
+                    infos.ReleaseFromActiveAppearance();   
+            }
         }
 
+        private void ApplyStateChangesToLabels()
+        {
+            foreach(KeyInfo info in RegularKeys)
+            {
+                info.SetShiftState(IsSetToUppercase);
+            }
+        }
     }
 }

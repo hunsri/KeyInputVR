@@ -45,7 +45,7 @@ public class KeyPressManager : MonoBehaviour
         {
             case KeyType.REGULAR:
                 {
-                    string text = _keyboard.IsShifted ? keyDefinition.ShiftedOutput : keyDefinition.BaseOutput;
+                    string text = ShouldOutputShiftedVariant() ? keyDefinition.ShiftedOutput : keyDefinition.BaseOutput;
                     _screenView.AddString(text);
                     ApplyShiftKeyState(false);
                     break;
@@ -76,31 +76,39 @@ public class KeyPressManager : MonoBehaviour
                 }
             case KeyType.CAPSLOCK:
                 {
-                    //if(_keyboard != null)
-                        //_keyboard.IsCapsLocked = !_keyboard.IsCapsLocked;
+                    InvertCapsLockState();   
                     break;
                 }
             default: break;
         }
     }
 
+    private void InvertCapsLockState()
+    {
+        if(_keyboard != null)
+        {
+            _keyboard.IsCapsLocked = !_keyboard.IsCapsLocked;
+            _keyboard.DisplayCapsLockKeysAsActive(_keyboard.IsCapsLocked);
+        }
+    }
+
     private void ApplyShiftKeyState(bool lastKeyWasShift)
     {
+        if(_keyboard != null)
         if(lastKeyWasShift && !_keyboard.IsShifted)
         {
             _keyboard.IsShifted = true;
-            foreach (KeyInfo infos in _keyboard.ShiftKeys)
-            {
-                infos.LockAppearanceToActive();
-            }
+            _keyboard.DisplayShiftKeysAsActive(true);
         }
         else
         {
             _keyboard.IsShifted = false;
-            foreach (KeyInfo infos in _keyboard.ShiftKeys)
-            {
-                infos.ReleaseFromActiveAppearance();
-            }
+            _keyboard.DisplayShiftKeysAsActive(false);
         }
+    }
+
+    private bool ShouldOutputShiftedVariant()
+    {
+        return _keyboard.IsSetToUppercase;
     }
 }
