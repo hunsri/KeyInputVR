@@ -4,7 +4,7 @@ namespace KeyInputVR.KeyMaps
 {
     public enum KeyType
     {
-        UNSPECIFIED, REGULAR, SHIFT, CAPSLOCK, TAB, SPACE, BACKSPACE, ENTER
+        UNSPECIFIED, REGULAR, SHIFT, CAPSLOCK, TAB, SPACE, BACKSPACE, ENTER, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, DELETE
     };
 
     public static class KeyTypeExtensions
@@ -19,6 +19,11 @@ namespace KeyInputVR.KeyMaps
             Key.Backspace => KeyType.BACKSPACE,
             Key.Enter => KeyType.ENTER,
             Key.NumpadEnter => KeyType.ENTER,
+            Key.UpArrow => KeyType.ARROW_UP,
+            Key.DownArrow => KeyType.ARROW_DOWN,
+            Key.LeftArrow => KeyType.ARROW_LEFT,
+            Key.RightArrow => KeyType.ARROW_RIGHT,
+            Key.Delete => KeyType.DELETE,
             _ => KeyType.UNSPECIFIED
         };
     }

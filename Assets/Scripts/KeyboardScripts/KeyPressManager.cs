@@ -46,26 +46,35 @@ public class KeyPressManager : MonoBehaviour
             case KeyType.REGULAR:
                 {
                     string text = ShouldOutputShiftedVariant() ? keyDefinition.ShiftedOutput : keyDefinition.BaseOutput;
-                    _screenView.AddString(text);
+                    _screenView.InsertString(text);
                     ApplyShiftKeyState(false);
+                    break;
+                }
+            case KeyType.ENTER:
+                {
+                    _screenView.BeginNewLine();
                     break;
                 }
             case KeyType.SPACE:
                 {
-                    _screenView.AddString(" ");
+                    _screenView.InsertString(" ");
                     ApplyShiftKeyState(false);
                     break;
                 }
             case KeyType.BACKSPACE:
                 {
-                    _screenView.RemoveCharacter();
-                    ApplyShiftKeyState(false);
+                    _screenView.RemovePreviousCharacter();
+                    break;
+                }
+            case KeyType.DELETE:
+                {
+                    _screenView.RemoveNextCharacter();
                     break;
                 }
             case KeyType.TAB:
                 {
                     //four spaces
-                    _screenView.AddString("    ");
+                    _screenView.InsertString("    ");
                     ApplyShiftKeyState(false);
                     break;
                 }
@@ -77,6 +86,16 @@ public class KeyPressManager : MonoBehaviour
             case KeyType.CAPSLOCK:
                 {
                     InvertCapsLockState();   
+                    break;
+                }
+            case KeyType.ARROW_LEFT:
+                {   
+                    _screenView.MoveCaretToPreviousCharacter();
+                    break;
+                }
+            case KeyType.ARROW_RIGHT:
+                {
+                    _screenView.MoveCaretToNextCharacter();
                     break;
                 }
             default: break;
