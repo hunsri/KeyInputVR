@@ -30,7 +30,6 @@ namespace KeyInputVR.HapticFeedback
 
         public void TriggerFeedback(XRBaseController controller)
         {
-            Debug.Log("feedback!");
             controller.SendHapticImpulse(_intensity, _duration);
         }
 
