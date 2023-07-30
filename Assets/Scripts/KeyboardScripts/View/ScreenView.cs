@@ -73,8 +73,8 @@ public class ScreenView : MonoBehaviour
 
     public void BeginNewLine()
     {
-        InsertString(System.Environment.NewLine);
-        _inputField.MoveTextEnd(false);
+        char lineFeed = (char) 10;
+        InsertString(lineFeed.ToString());
     }
 
     public void MoveCaretToPreviousCharacter()
