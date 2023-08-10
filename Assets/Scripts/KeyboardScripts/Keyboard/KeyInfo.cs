@@ -16,7 +16,7 @@ namespace KeyInputVR.Keyboard
         private KeyLabel _keyLabel;
 
         [SerializeField]
-        private KeyManipulator _keyManipulator;
+        private KeyMarker _keyMarker;
 
         private bool _isShifted;
 
@@ -59,12 +59,12 @@ namespace KeyInputVR.Keyboard
 
         public void LockAppearanceToActive()
         {
-            _keyManipulator.FixateToActivated();
+            _keyMarker.MarkAsActive();
         }
 
         public void ReleaseFromActiveAppearance()
         {
-            _keyManipulator.ReleaseFromFixation();
+            _keyMarker.UnmarkAsActive();
         }
 
         private void OnValidate()
