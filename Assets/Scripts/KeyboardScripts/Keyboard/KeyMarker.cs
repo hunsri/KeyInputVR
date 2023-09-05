@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Rendering;
 namespace KeyInputVR.Keyboard
 {
     public class KeyMarker : MonoBehaviour
-    {   
+    {
         [SerializeField]
         private Material _activatedMaterial;
 
@@ -21,7 +21,7 @@ namespace KeyInputVR.Keyboard
         }
 
         /// <summary>
-        /// Creating a cloned model of the key and applies a specified material to it.
+        /// Creates a cloned model of the key and applies a specified material to it.
         /// This clone replaces the regular key model in the event of marking the key as active.
         /// For example the CapsLock key can be marked as active when CapsLock is active.
         /// </summary>
