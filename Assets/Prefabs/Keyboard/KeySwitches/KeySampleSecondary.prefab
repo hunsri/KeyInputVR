@@ -147,13 +147,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 2986839366419868477}
     m_Modifications:
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6494011098643745111}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -163,8 +175,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6494011098643745111}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitSelection
       objectReference: {fileID: 0}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -172,11 +192,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ActivateKey
+      value: EnterSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KeyInputVR.Keyboard.KeyInfo, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: KeyInfo, Assembly-CSharp
+      value: KeyInputVR.Keyboard.KeyInfo, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1290384176122702183, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -198,6 +226,10 @@ PrefabInstance:
       propertyPath: m_Renderer
       value: 
       objectReference: {fileID: 2907820973201123310}
+    - target: {fileID: 5264577464307607883, guid: afa95eb31df8255429659f7de892000f, type: 3}
+      propertyPath: _keyInfo
+      value: 
+      objectReference: {fileID: 6494011098643745111}
     - target: {fileID: 5600716638479483546, guid: afa95eb31df8255429659f7de892000f, type: 3}
       propertyPath: m_RootOrder
       value: 0
