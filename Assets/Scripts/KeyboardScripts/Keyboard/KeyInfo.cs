@@ -2,6 +2,8 @@ using System;
 using KeyInputVR.KeyMaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace KeyInputVR.Keyboard
 {
@@ -20,6 +22,8 @@ namespace KeyInputVR.Keyboard
 
         private bool _isShifted;
 
+        public IXRSelectInteractor SelectedBy {get; private set; } = null;
+
         public event Action<IKeyMap, Key> OnKeyActivated = delegate { };
 
         // Start is called before the first frame update
@@ -36,6 +40,11 @@ namespace KeyInputVR.Keyboard
             }
         }
 
+        private void OnValidate()
+        {
+            UpdateLabel();
+        }
+
         public Key GetKey()
         {
             return _key;
@@ -44,6 +53,21 @@ namespace KeyInputVR.Keyboard
         public void ActivateKey()
         {
             OnKeyActivated(_keyMap, _key);
+        }
+
+        public void EnterSelection(SelectEnterEventArgs eventArgs)
+        {
+            if(SelectedBy == null)
+            {
+                SelectedBy = eventArgs.interactorObject;
+            }
+
+            ActivateKey();
+        }
+
+        public void ExitSelection(SelectExitEventArgs eventArgs)
+        {
+            SelectedBy = null;
         }
 
         public void SetKeyMap(IKeyMap keyMap)
@@ -65,11 +89,6 @@ namespace KeyInputVR.Keyboard
         public void ReleaseFromActiveAppearance()
         {
             _keyMarker.UnmarkAsActive();
-        }
-
-        private void OnValidate()
-        {   
-            UpdateLabel();
         }
 
         private void UpdateLabel()

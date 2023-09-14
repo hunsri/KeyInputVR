@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 7917518896709461842}
   - component: {fileID: 3142890794203490138}
   - component: {fileID: 5560757735552024196}
+  - component: {fileID: 5264577464307607883}
   m_Layer: 0
   m_Name: KeySwitch
   m_TagString: Untagged
@@ -297,7 +298,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
+  m_StartingSelectFilters:
+  - {fileID: 5264577464307607883}
   m_StartingInteractionStrengthFilters: []
   m_OnFirstHoverEntered:
     m_PersistentCalls:
@@ -475,8 +477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activatedMaterial: {fileID: 2100000, guid: 8433cde9f80745549813879049d3d98d, type: 2}
-  _followAffordance: {fileID: 4810911160959507480}
-  _colorReceiver: {fileID: 8946800596318927259}
   _materialHelper: {fileID: 4035253984686046332}
 --- !u!114 &5560757735552024196
 MonoBehaviour:
@@ -494,6 +494,19 @@ MonoBehaviour:
   _hapticOnActivated:
     _intensity: 0.5
     _duration: 2
+--- !u!114 &5264577464307607883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713260716632921674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc22472488192844887fc4db59108d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyInfo: {fileID: 0}
 --- !u!1 &5262196979303855346
 GameObject:
   m_ObjectHideFlags: 0
