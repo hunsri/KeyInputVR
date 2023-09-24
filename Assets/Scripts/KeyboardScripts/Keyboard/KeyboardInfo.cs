@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using KeyInputVR.KeyMaps;
 using UnityEngine;
@@ -17,8 +16,12 @@ namespace KeyInputVR.Keyboard
         private bool _isShifted;
         private bool _isCapsLocked;
 
+        [SerializeField]
+        private bool _isSwitchSoundFeedbackEnabled = true;
+
         public bool IsShifted {get {return _isShifted;} set {SetShiftState(value);}}
         public bool IsCapsLocked {get {return _isCapsLocked;} set{SetCapsLockState(value);}}
+        public bool IsSoundFeedbackEnabled {get {return _isSwitchSoundFeedbackEnabled;} set{SetSoundFeedbackEnabled(value);}}
 
         // Logical XOR
         // Returns true if Shifted OR CapsLocked, but not if both or neither are true
@@ -60,9 +63,16 @@ namespace KeyInputVR.Keyboard
             }
         }
 
+        private void Start()
+        {
+            ApplySoundStateToSwitches();
+        }
+
         private void OnValidate()
         {
             ApplyMapping(_selectedMapping);
+
+            ApplySoundStateToSwitches();
         }
 
         private void ApplyMapping(KeyMappingType mapping)
@@ -97,6 +107,13 @@ namespace KeyInputVR.Keyboard
             ApplyStateChangesToLabels();
         }
 
+        private void SetSoundFeedbackEnabled(bool enabled)
+        {
+            _isSwitchSoundFeedbackEnabled = enabled;
+
+            ApplySoundStateToSwitches();
+        }
+
         public void DisplayShiftKeysAsActive(bool active)
         {
             foreach(KeyInfo infos in ShiftKeys)
@@ -124,6 +141,14 @@ namespace KeyInputVR.Keyboard
             foreach(KeyInfo info in RegularKeys)
             {
                 info.SetShiftState(IsSetToUppercase);
+            }
+        }
+
+        private void ApplySoundStateToSwitches()
+        {
+            foreach(KeyInfo info in RegularKeys)
+            {
+                info.SetFeedbackSoundState(IsSoundFeedbackEnabled);
             }
         }
     }

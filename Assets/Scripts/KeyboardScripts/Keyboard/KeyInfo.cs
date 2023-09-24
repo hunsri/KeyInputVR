@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 namespace KeyInputVR.Keyboard
 {
@@ -96,6 +97,35 @@ namespace KeyInputVR.Keyboard
             if(_keyLabel != null && _keyMap != null)
             {   
                 _keyLabel.UpdateLabel(_keyMap, _key, _isShifted);
+            }
+        }
+
+        public void SetFeedbackSoundState(bool enabled)
+        {
+            SelectEnterEvent selectEnterEvent = transform.GetComponentInChildren<XRBaseInteractable>().selectEntered;
+            SelectExitEvent selectExitEvent = transform.GetComponentInChildren<XRBaseInteractable>().selectExited;
+            SelectEnterEvent firstSelectEnterEvent = transform.GetComponentInChildren<XRBaseInteractable>().firstSelectEntered;
+            SelectExitEvent lastSelectExitEvent = transform.GetComponentInChildren<XRBaseInteractable>().lastSelectExited;
+
+            SoundOnEvent(selectEnterEvent, enabled);
+            SoundOnEvent(selectExitEvent, enabled);
+            SoundOnEvent(firstSelectEnterEvent, enabled);
+            SoundOnEvent(lastSelectExitEvent, enabled);
+        }
+
+        private void SoundOnEvent(UnityEventBase unityEvent, bool enabled)
+        {
+            for(int i = 0; i < unityEvent.GetPersistentEventCount(); i++)
+            {
+                try
+                {
+                    AudioSource audio = (AudioSource) unityEvent.GetPersistentTarget(i);
+                    audio.mute = !enabled;
+                }
+                catch
+                {
+
+                }
             }
         }
     }

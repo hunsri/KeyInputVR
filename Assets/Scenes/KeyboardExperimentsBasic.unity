@@ -657,10 +657,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5330083796421794582, guid: 6f3cd45223a830746869edc63bf77128, type: 3}
-      propertyPath: _selectedMapping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8439307117121581283, guid: 6f3cd45223a830746869edc63bf77128, type: 3}
       propertyPath: m_PokeConfiguration.m_Variable
       value: 
