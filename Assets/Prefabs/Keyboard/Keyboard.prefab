@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectedMapping: 1
+  _isSwitchSoundFeedbackEnabled: 1
   KeyInfos:
   - {fileID: 4586317738217808346}
   - {fileID: 195581477012299826}
@@ -329,7 +330,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6536214625853614505}
-  m_Mesh: {fileID: -327218276259777663, guid: a25aeb7f9e7e12f42a5e6d034059133d, type: 3}
+  m_Mesh: {fileID: -327218276259777663, guid: b0ec6a6c6e194054e9c7e579abff0ddb, type: 3}
 --- !u!23 &2855795998890174915
 MeshRenderer:
   m_ObjectHideFlags: 0
