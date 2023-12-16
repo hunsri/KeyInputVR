@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/KeyboardExperimentsBasic.unity
+    path: Assets/KeyInputVR/Scenes/KeyboardExperimentsBasic.unity
     guid: e697663b991401e4eae9a3b04c27d3c8
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9e7942b2129d5a84ab14cb7e2a36c61d, type: 2}
